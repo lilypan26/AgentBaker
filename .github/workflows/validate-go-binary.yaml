@@ -1,8 +1,7 @@
 name: check-update-go-binary
-on: pull_request
-pr:
-  paths:
-    include:
+on: 
+  pull_request:
+    paths:
     - pkg/proto
     - pkg/parser
 

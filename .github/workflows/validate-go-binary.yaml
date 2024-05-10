@@ -2,8 +2,8 @@ name: check-update-go-binary
 on: 
   pull_request:
     paths:
-    - 'pkg/proto'
-    - 'pkg/parser'
+      - 'pkg/proto/**'
+      - 'pkg/parser/**'
 
 jobs:
   check-go-binary:

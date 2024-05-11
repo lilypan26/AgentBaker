@@ -23,6 +23,6 @@ jobs:
     - name: Compare go binary with master branch
       run: |
         if ! cmp -s pkg/parser/bin/parser parser; then
-          echo "Error: Go binary has not been updated on current branch. Please run `make update-contract` to update the go binary."
+          echo "Error: Go binary has not been updated on current branch. Please run 'make update-contract' to update the go binary."
           exit 1
         fi

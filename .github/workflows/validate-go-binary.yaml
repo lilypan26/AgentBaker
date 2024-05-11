@@ -22,7 +22,7 @@ jobs:
           echo "Error: Go binary does not exist. Please run 'make update-contract' to generate the go binary."
           exit 1
         fi
-        if ! cmp -s "${PARSER_BINARY}" "${{ github.event.before }}:${PARSER_BINARY}"; then
+        if cmp -s "${PARSER_BINARY}" "${{ github.event.before }}:${PARSER_BINARY}"; then
           echo "Error: Go binary has not been updated on current branch. Please run 'make update-contract' to update the go binary."
           exit 1
         fi

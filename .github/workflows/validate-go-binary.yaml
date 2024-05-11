@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: |
-        make validate-image-version
+        make update-contract
       name: Generate go binary
 
     - name: Compare with master

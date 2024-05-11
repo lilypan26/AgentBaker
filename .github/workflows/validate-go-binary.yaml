@@ -8,25 +8,24 @@ on:
 jobs:
   check-go-binary:
     runs-on: ubuntu-latest
+    env:
+      PARSER_BINARY: pkg/parser/bin/parser
     steps:
     - uses: actions/checkout@v4
     - run: |
         make validate-image-version
-        cp pkg/parser/bin/parser parser
       name: Generate go binary
 
-    - name: Checkout master branch
+    - name: Compare with master
       uses: actions/checkout@v4
       with:
         ref: 'master'
-
-    - name: Compare go binary with master branch
       run: |
-        if ! [ -f "pkg/parser/bin/parser" ]; then
+        if ! [ -f "${PARSER_BINARY}" ]; then
           echo "Error: Go binary does not exist. Please run 'make update-contract' to generate the go binary."
           exit 1
         fi
-        if ! cmp -s pkg/parser/bin/parser parser; then
+        if ! cmp -s "${PARSER_BINARY}" "${{ github.event.before }}:${PARSER_BINARY}"; then
           echo "Error: Go binary has not been updated on current branch. Please run 'make update-contract' to update the go binary."
           exit 1
         fi

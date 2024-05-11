@@ -17,9 +17,6 @@ jobs:
       name: Generate go binary
 
     - name: Compare with master
-      uses: actions/checkout@v4
-      with:
-        ref: 'master'
       run: |
         if ! [ -f "${PARSER_BINARY}" ]; then
           echo "Error: Go binary does not exist. Please run 'make update-contract' to generate the go binary."

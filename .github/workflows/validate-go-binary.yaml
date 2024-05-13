@@ -12,9 +12,6 @@ jobs:
       PARSER_BINARY: pkg/parser/bin/parser
     steps:
     - uses: actions/checkout@v4
-    - run: |
-        make update-contract
-      name: Generate go binary
 
     - run: git fetch origin master
       name: Fetch master branch

@@ -16,8 +16,7 @@ jobs:
         make update-contract
       name: Generate go binary
 
-    - uses: actions/checkout@v4
-      run: git fetch origin master
+    - run: git fetch origin master
       name: Fetch master branch
 
     - name: Validate Go binary

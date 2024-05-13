@@ -20,7 +20,7 @@ jobs:
 
     - name: Validate Go binary
       run: |
-        if ! [-f "${{ github.workspace }}/${PARSER_BINARY}"] && ! [-f "${{ github.workspace }}/master/${PARSER_BINARY}"]; then
+        if ! [-f "${{ github.workspace }}/${PARSER_BINARY}"]; then
           echo "Error: Go binary has not been generated on current branch. Please run 'make update-contract' to generate the go binary."
           exit 1
         fi
